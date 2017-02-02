@@ -65,13 +65,13 @@ void Del(vi &minheap)
     siz--;
     while(c<siz)
     {
-        if(2*c+1>=siz || Min(minheap[2*c+1],minheap[2*c+2])>=minheap[c]) break;
-        else if(minheap[2*c+1]<minheap[2*c+2] || 2*c+1==siz-1)
+        if(2*c+1>=siz || (Min(minheap[2*c+1],minheap[2*c+2])>=minheap[c] && 2*c+2<siz) || (2*c+1==siz-1 && minheap[2*c+1]>=minheap[c])) break;
+        else if((minheap[2*c+1]<minheap[2*c+2] && 2*c+2<=siz-1) || (2*c+1==siz-1 && minheap[2*c+1]<minheap[c]))
         {
             swap(minheap[c],minheap[2*c+1]);
             c=2*c+1;
         }
-        else
+        else if(2*c+2<=siz-1 && minheap[2*c+2]<minheap[c])
         {
             swap(minheap[c],minheap[2*c+2]);
             c=2*c+2;
