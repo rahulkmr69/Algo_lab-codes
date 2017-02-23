@@ -80,10 +80,7 @@ int main()
     cin>>n;
     while((1<<it)<n) it++;
     ll N=1<<it;
-    vii A(N),B(N),C(N);
-    rep(i,N) rep(j,N) A[i].pb(0);
-    rep(i,N) rep(j,N) B[i].pb(0);
-    rep(i,N) rep(j,N) C[i].pb(0);
+    vii A(N,vi(N,0)),B(N,vi(N,0)),C(N,vi(N,0));
     rep(i,n) rep(j,n) cin>>A[i][j];
     rep(i,n) rep(j,n) cin>>B[i][j];
     C=multiply(A,B,N);
