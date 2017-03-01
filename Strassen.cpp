@@ -12,23 +12,8 @@ using namespace std;
 #define pii                 pair<int,int>
 #define all(c)              c.begin(),c.end()
 #define sz(c)               c.size()
-ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
-ll lcm(ll a, ll b) { return a * (b / gcd(a, b)); }
 ll Max(ll a, ll b) { return a > b ? a : b; }
 ll Min(ll a, ll b) { return a < b ? a : b; }
-ll power(ll x, ll y,ll p)
-{
-    ll res=1;
-    x=x%p;
-    while(y>0)
-    {
-        if(y&1)
-            res=((res%p)*(x%p))%p;
-        y=y>>1;
-        x=((x%p)*(x%p))%p;
-    }
-    return res;
-}
 vii add(vii A,vii B,ll n)
 {
     vii C(n);
