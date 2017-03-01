@@ -36,7 +36,6 @@ void findHull(vector< pii > &ans,vector< pii > &arr,pii l,pii r)
             }
         }
         ans.pb(arr[it]);
-        //lc
         vector< pii > arr1,arr2;
         ll z1=(r.se-l.se)*(arr[it].fi-l.fi)-(arr[it].se-l.se)*(r.fi-l.fi);
         ll z2=(l.se-arr[it].se)*(r.fi-arr[it].fi)-(r.se-arr[it].se)*(l.fi-arr[it].fi);
@@ -62,23 +61,26 @@ int main()
     cout.tie(0);
     ld n;
     cin>>n;
-    vector< pii > arr(n),ans,arr1,arr2;
-    rep(i,n) cin>>arr[i].fi>>arr[i].se;
-    sort(all(arr));
-    ans.pb(arr[0]);
-    ans.pb(arr[n-1]);
-    rep(i,n-2)
+    if(n!=0)
     {
-        pii z=arr[i+1];
-        if((z.se-arr[0].se)*(arr[n-1].fi-arr[0].fi)>(arr[n-1].se-arr[0].se)*(z.fi-arr[0].fi)) arr1.pb(z);
-        else if((z.se-arr[0].se)*(arr[n-1].fi-arr[0].fi)<(arr[n-1].se-arr[0].se)*(z.fi-arr[0].fi)) arr2.pb(z);
+        vector< pii > arr(n),ans,arr1,arr2;
+        rep(i,n) cin>>arr[i].fi>>arr[i].se;
+        sort(all(arr));
+        ans.pb(arr[0]);
+        ans.pb(arr[n-1]);
+        rep(i,n-2)
+        {
+            pii z=arr[i+1];
+            if((z.se-arr[0].se)*(arr[n-1].fi-arr[0].fi)>(arr[n-1].se-arr[0].se)*(z.fi-arr[0].fi)) arr1.pb(z);
+            else if((z.se-arr[0].se)*(arr[n-1].fi-arr[0].fi)<(arr[n-1].se-arr[0].se)*(z.fi-arr[0].fi)) arr2.pb(z);
+        }
+        findHull(ans,arr1,arr[0],arr[n-1]);
+        findHull(ans,arr2,arr[n-1],arr[0]);
+        sort(all(ans));
+        p=ans[0];
+        sort(ans.begin(),ans.end(),cmp);
+        cout<<sz(ans)<<endl;
+        rep(i,sz(ans)) cout<<ans[i].fi<<" "<<ans[i].se<<endl;
     }
-    findHull(ans,arr1,arr[0],arr[n-1]);
-    findHull(ans,arr2,arr[n-1],arr[0]);
-    sort(all(ans));
-    p=ans[0];
-    sort(ans.begin(),ans.end(),cmp);
-    cout<<sz(ans)<<endl;
-    rep(i,sz(ans)) cout<<ans[i].fi<<" "<<ans[i].se<<endl;
     return 0;
 }
