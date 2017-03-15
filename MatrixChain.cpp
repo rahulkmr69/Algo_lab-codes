@@ -34,6 +34,19 @@ ll solve(vii &dp,vector< pii > &mat,vii &path,ll n)
     }
     return dp[0][n-1];
 }
+void findPath(vii &path,vi &op,vi &cl,ll st,ll en)
+{
+    if(en<=st) return;
+    else
+    {
+        op[st]+=1;
+        cl[en]+=1;
+        op[path[st][en]+1]+=1;
+        cl[path[st][en]]+=1;
+        findPath(path,op,cl,st,path[st][en]);
+        findPath(path,op,cl,path[st][en]+1,en);
+    }
+}
 int main()
 {
     ios::sync_with_stdio(false);
@@ -46,6 +59,14 @@ int main()
     vii dp(N,vi(N,1e15));
     vii path(N,vi(N,-1));
     ll ans=solve(dp,mat,path,N);
-    cout<<ans;
+    cout<<ans<<endl;
+    vi op(N+2,0),cl(N+2,0);
+    findPath(path,op,cl,0,N-1);
+    rep(i,N)
+    {
+        rep(j,op[i]) cout<<"(";
+        cout<<i;
+        rep(j,cl[i]) cout<<")";
+    }
     return 0;
 }
