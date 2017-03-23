@@ -44,8 +44,8 @@ vector< vector< pii > > prim(vector< vector< pii > > &g,ll n,ll x)
         if(vis[z.se.se]==0)
         {
             vis[z.se.se]=1;
-            ans[z.se.fi].pb(mp(z.fi,z.se.se));
-            ans[z.se.se].pb(mp(z.fi,z.se.fi));
+            if(z.se.fi!=z.se.se) ans[z.se.fi].pb(mp(z.fi,z.se.se));
+            if(z.se.fi!=z.se.se) ans[z.se.se].pb(mp(z.fi,z.se.fi));
             rep(i,sz(g[z.se.se]))
             {
                 if(vis[g[z.se.se][i].se]==0)
