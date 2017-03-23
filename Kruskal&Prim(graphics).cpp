@@ -36,7 +36,7 @@ vector< vector< pii > > prim(vector< vector< pii > > &g,ll n,ll x)
     vector< vector< pii > > ans(n);
     vi vis(n,0);
     priority_queue< pair<ll,pair<ll,ll> >,vector< pair<ll,pair<ll,ll> > >,greater< pair<ll,pair<ll,ll> > > > q;
-    q.push(mp(0,mp(0,0)));
+    q.push(mp(0,mp(x,x)));
     while(!q.empty())
     {
         pair<ll,pair<ll,ll> > z=q.top();
