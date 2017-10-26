@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 #define ll                  long long
 #define ld                  long double
 #define rep(i,n)            for(ll i=0;i<n;i++)
@@ -13,6 +14,7 @@ using namespace std;
 #define pii                 pair<ll,ll>
 #define all(c)              c.begin(),c.end()
 #define sz(c)               c.size()
+
 ll root(vi &dsu,ll x)
 {
     while(dsu[x]!=x)
