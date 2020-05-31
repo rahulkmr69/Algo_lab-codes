@@ -2,7 +2,7 @@
 using namespace std;
 #define ll                  long long
 #define ld                  long double
-#define rep(i,n)            for(ll i=0;i<n;i++)
+#define rep(i,n)            for(long long i=0;i<n;i++)
 #define hell                1000000007LL
 #define vi                  vector<ll>
 #define vii                 vector< vi >
