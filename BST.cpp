@@ -72,7 +72,8 @@ void insert(ll a)
 }
 bool del(ll a)
 {
-    if(treesize==0) return false;
+    if(treesize==0) 
+        return false;
     else if(head->data==a)
     {
         bool l=head->left==NULL;
