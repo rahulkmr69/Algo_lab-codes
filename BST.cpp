@@ -15,6 +15,7 @@ using namespace std;
 ll treesize=0;
 ll Max(ll a, ll b) { return a > b ? a : b; }
 ll Min(ll a, ll b) { return a < b ? a : b; }
+
 struct Node
 {
     ll data;
